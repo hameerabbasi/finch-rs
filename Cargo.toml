@@ -1,0 +1,11 @@
+[package]
+name = "finch-rs"
+version = "0.1.0"
+edition = "2024"
+description = "Namesquatting for Rust port of Finch.jl"
+license = "BSD-3-Clause"
+license-file = "LICENSE"
+repository = "https://github.com/hameerabbasi/finch-rs"
+
+[dependencies]
+melior = "0.25.0"

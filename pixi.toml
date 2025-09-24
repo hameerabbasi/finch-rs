@@ -1,0 +1,14 @@
+[workspace]
+authors = ["Hameer Abbasi <2190658+hameerabbasi@users.noreply.github.com>"]
+channels = ["conda-forge"]
+name = "finch-rs"
+platforms = ["osx-arm64"]
+version = "0.0.1"
+
+[tasks]
+
+[dependencies]
+rust = ">=1.90.0"
+llvmdev = "20.*"
+mlir = "20.*"
+rust-src = ">=1.90.0,<2"
