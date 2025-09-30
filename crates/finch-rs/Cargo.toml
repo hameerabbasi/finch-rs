@@ -1,0 +1,10 @@
+[package]
+name = "finch-rs"
+version = "0.1.1"
+edition = "2024"
+description = "Namesquatting for Rust port of Finch.jl"
+license = "BSD-3-Clause"
+repository = "https://github.com/hameerabbasi/finch-rs"
+
+[dependencies]
+finch-symbolic = { path = "../finch-symbolic", version = "0.1.1" }

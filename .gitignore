@@ -26,4 +26,4 @@ target
 
 # Added by cargo
 
-/target
+**/target/

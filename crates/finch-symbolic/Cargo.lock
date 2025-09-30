@@ -15,15 +15,8 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "15401da73a9ed8c80e3b2d4dc05fe10e7b72d7243b9f614e516a44fa99986e88"
 
 [[package]]
-name = "finch-rs"
-version = "0.1.1"
-dependencies = [
- "finch-symbolic",
-]
-
-[[package]]
-name = "finch-symbolic"
-version = "0.1.1"
+name = "finch-symbolic-rs"
+version = "0.1.0"
 dependencies = [
  "dyn-eq",
  "dyn-hash",

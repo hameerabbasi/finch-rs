@@ -1,0 +1,15 @@
+pre-push:
+  jobs:
+    - name: check
+      run: cargo check
+      glob: ["**/Cargo.toml", "**/*.rs", "**/Cargo.lock"]
+    - name: clippy
+      run: cargo clippy
+      glob: ["**/Cargo.toml", "**/*.rs", "**/Cargo.lock"]
+
+
+pre-commit:
+  jobs:
+    - name: fmt
+      run: cargo fmt -- {staged_files}
+      glob: ["**/*.rs"]
