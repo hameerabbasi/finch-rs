@@ -3,6 +3,12 @@
 version = 4
 
 [[package]]
+name = "dyn-clone"
+version = "1.0.20"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d0881ea181b1df73ff77ffaaf9c7544ecc11e82fba9b5f27b262a3c73a332555"
+
+[[package]]
 name = "dyn-eq"
 version = "0.1.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -15,9 +21,19 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "15401da73a9ed8c80e3b2d4dc05fe10e7b72d7243b9f614e516a44fa99986e88"
 
 [[package]]
+name = "finch-levels"
+version = "0.1.1"
+dependencies = [
+ "dyn-clone",
+ "dyn-eq",
+ "dyn-hash",
+]
+
+[[package]]
 name = "finch-rs"
 version = "0.1.1"
 dependencies = [
+ "finch-levels",
  "finch-symbolic",
 ]
 

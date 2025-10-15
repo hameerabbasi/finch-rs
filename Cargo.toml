@@ -1,5 +1,6 @@
 workspace.members = [
-    "./crates/finch-rs",
-    "./crates/finch-symbolic",
+    "crates/finch-rs",
+    "crates/finch-symbolic",
+    "crates/finch-levels",
 ]
 workspace.resolver = "3"

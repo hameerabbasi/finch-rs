@@ -1,10 +1,10 @@
 pre-push:
   jobs:
     - name: check
-      run: cargo check
+      run: RUSTFLAGS="-D warnings" cargo check
       glob: ["**/Cargo.toml", "**/*.rs", "**/Cargo.lock"]
     - name: clippy
-      run: cargo clippy
+      run: RUSTFLAGS="-D warnings" cargo clippy
       glob: ["**/Cargo.toml", "**/*.rs", "**/Cargo.lock"]
 
 
