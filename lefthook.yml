@@ -1,15 +1,11 @@
 pre-push:
   jobs:
     - name: check
-      run: RUSTFLAGS="-D warnings" cargo check
-      glob: ["**/Cargo.toml", "**/*.rs", "**/Cargo.lock"]
-    - name: clippy
-      run: RUSTFLAGS="-D warnings" cargo clippy
-      glob: ["**/Cargo.toml", "**/*.rs", "**/Cargo.lock"]
+      run: pixi run check
 
 
 pre-commit:
   jobs:
     - name: fmt
-      run: cargo fmt -- {staged_files}
+      run: pixi run format -- {staged_files}
       glob: ["**/*.rs"]

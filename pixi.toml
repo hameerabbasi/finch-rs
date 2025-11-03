@@ -5,7 +5,13 @@ name = "finch-rs"
 platforms = ["osx-arm64"]
 version = "0.0.1"
 
+[activation.env]
+RUSTFLAGS = "-D warnings"
+
 [tasks]
+format = "cargo fmt"
+fix = "cargo clippy --fix"
+check = "cargo check && cargo clippy"
 
 [dependencies]
 rust = ">=1.90.0"
