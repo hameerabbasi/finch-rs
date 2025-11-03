@@ -1,20 +1,30 @@
 use std::fmt::Debug;
-use std::rc::Rc;
 
 use dyn_clone::DynClone;
-use dyn_eq::DynEq;
+use num::Integer;
+use num::NumCast;
+use num::ToPrimitive;
 
-pub trait ConcreteLevel: DynClone + DynEq + Debug {
-    fn get_level_arrays(&self) -> Vec<Vec<u8>>;
-    fn get_shape(&self) -> Vec<u64>;
-    fn get_inner(&self) -> Rc<dyn ConcreteLevel>;
+pub mod dense;
+pub mod element;
+pub mod sparse_vector;
 
-    fn get_all_arrays(&self) -> Vec<Vec<u8>> {
+pub trait ConcreteLevel<'a, I>: DynClone + Debug
+where
+    I: Integer + Debug + Clone + NumCast + ToPrimitive,
+{
+    fn get_level_arrays(&'a self) -> Vec<&'a Vec<I>>;
+    fn get_shape(&self) -> Vec<I>;
+    fn get_inner(&self) -> Option<&'a dyn ConcreteLevel<'a, I>>;
+    fn get_nnz(&self) -> usize;
+
+    fn get_all_arrays(&'a self) -> Vec<&'a Vec<I>> {
         let mut a = self.get_level_arrays();
-        a.extend((*self.get_inner()).get_all_arrays());
+        if let Some(inner) = self.get_inner() {
+            a.extend(inner.get_all_arrays());
+        }
         a
     }
 }
 
-dyn_clone::clone_trait_object!(ConcreteLevel);
-dyn_eq::eq_trait_object!(ConcreteLevel);
+dyn_clone::clone_trait_object!(<'a, I> ConcreteLevel<'a, I> where I: Integer);
