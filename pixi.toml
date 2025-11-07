@@ -2,7 +2,7 @@
 authors = ["Hameer Abbasi <2190658+hameerabbasi@users.noreply.github.com>"]
 channels = ["conda-forge"]
 name = "finch-rs"
-platforms = ["osx-arm64"]
+platforms = ["osx-arm64", "linux-64"]
 version = "0.0.1"
 
 [activation.env]
@@ -14,7 +14,7 @@ fix = "cargo clippy --fix"
 check = "cargo check && cargo clippy"
 
 [dependencies]
-rust = ">=1.90.0"
+rust = ">=1.91.0"
 llvmdev = "20.*"
 mlir = "20.*"
-rust-src = ">=1.90.0,<2"
+rust-src = ">=1.91.0"
