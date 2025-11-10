@@ -25,6 +25,12 @@ where
         }
         a
     }
+
+    fn get_nelem(&self) -> I {
+        self.get_shape()
+            .into_iter()
+            .fold(I::one(), |acc, x| acc * x)
+    }
 }
 
 dyn_clone::clone_trait_object!(<'a, I> ConcreteLevel<'a, I> where I: Integer);
